@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Una Pregunta Especial 💖</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #ffe0ec);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', cursive;
+      color: #b30059;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background-color: #ff66a3;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.2s;
+      position: relative;
+    }
+
+    button:hover {
+      background-color: #e05590;
+    }
+
+    dialog {
+      border: none;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      background: #fff0f5;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Puedo ser tu novio? 💌</h1>
+
+  <div class="buttons">
+    <button onclick="mostrarDialogo()">Sí, quiero ❤️</button>
+    <button id="noBtn" onmouseover="moverBoton()">No 😢</button>
+  </div>
+
+  <dialog id="miDialogo">
+    <h2>¡Sabía que dirías que sí! 💖</h2>
+    <p>Este es solo el comienzo de algo hermoso 🌹</p>
+    <button onclick="cerrarDialogo()">Cerrar 💫</button>
+  </dialog>
+
+  <script>
+    const dialogo = document.getElementById("miDialogo");
+    const noBtn = document.getElementById("noBtn");
+
+    function mostrarDialogo() {
+      dialogo.showModal();
+    }
+
+    function cerrarDialogo() {
+      dialogo.close();
+    }
+
+    function moverBoton() {
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.position = "absolute";
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+  </script>
+
+</body>
+</html>
